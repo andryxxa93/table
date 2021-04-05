@@ -22,17 +22,23 @@ function App() {
         getData()
     }, [data])
 
+
+    const setModalTopValue = (e) => {
+        const elementTopPosition = e.target.parentNode.className.includes('row')
+            ? e.target.parentNode.getBoundingClientRect().y
+            : e.target.getBoundingClientRect().y
+        const scrollTop = document.documentElement.scrollTop;
+        const elementHeight = +window.getComputedStyle(e.target).height.replace('px', '');
+        const paddingValue = 20;
+
+        setTopModal(elementTopPosition + scrollTop + elementHeight + paddingValue);
+    }
+
     const visibleHandler = (e) => {
         if (e.target.tagName !== 'INPUT') {
             setOverlayVisible(prev => !prev)
             setModalVisible(prev => !prev)
-            const elementTopPosition = e.target.parentNode.className.includes('row')
-                ? e.target.parentNode.getBoundingClientRect().y
-                : e.target.getBoundingClientRect().y
-            const scrollTop = document.documentElement.scrollTop;
-            const elementHeight = +window.getComputedStyle(e.target).height.replace('px', '');
-            const paddingValue = 20;
-            setTopModal(elementTopPosition + scrollTop + elementHeight + paddingValue);
+            setModalTopValue(e);
         }
     }
 
