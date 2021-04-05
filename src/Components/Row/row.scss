@@ -1,0 +1,12 @@
+.row {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #000;
+    cursor: pointer;
+    &-completed {
+        background-color: rgba($color: #cef8d9, $alpha: 1.0);
+    }
+}

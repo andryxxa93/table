@@ -1,0 +1,14 @@
+.modal {
+    position: absolute;
+    z-index: 200;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 150px;
+    height: 150px;
+    background: #fff;
+    padding: 20px;
+}
